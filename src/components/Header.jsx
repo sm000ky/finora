@@ -27,14 +27,14 @@ export default function Header({
           <div>
             <div className="flex items-center gap-1.5">
               <h1 className="font-heading font-extrabold text-lg sm:text-xl text-slate-800 dark:text-purple-100 tracking-tight leading-none">
-                MIAU EXCEL STUDIO
+                FINORA STUDIO
               </h1>
               <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-cute font-extrabold bg-pastel-pink/20 text-pastel-rose dark:bg-pink-950/60">
                 <Sparkles className="w-3 h-3" /> Auto-Engine
               </span>
             </div>
             <p className="text-[11px] sm:text-xs font-cute text-slate-500 dark:text-purple-300/80 mt-0.5">
-              Akuntan Cantik, Jurnal Cerdas & Laporan Excel Otomatis ✨
+              Modern Accounting & Tax Ledger Studio ✨
             </p>
           </div>
         </div>
