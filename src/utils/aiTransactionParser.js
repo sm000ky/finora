@@ -122,7 +122,7 @@ export function parseTextLocally(rawText) {
 }
 
 // AI Remote Parser (Calls local / remote OpenAI-compatible endpoint)
-export async function parseWithAI(rawText, endpointUrl = 'http://localhost:20127/v1/chat/completions', apiKey = '') {
+export async function parseWithAI(rawText, endpointUrl = '/finora/api/v1/chat/completions', apiKey = '') {
   try {
     const prompt = `Anda adalah akuntan ahli Indonesia. Ekstrak teks transaksi mentah berikut menjadi baris Jurnal Umum berpasangan (Debit dan Kredit harus BALANCE).
 Format output HANYA JSON array tanpa markdown:
@@ -136,7 +136,7 @@ Teks Transaksi:
 ${rawText}`;
 
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 12000);
+    const timeout = setTimeout(() => controller.abort(), 60000);
 
     const res = await fetch(endpointUrl, {
       method: 'POST',
@@ -145,7 +145,7 @@ ${rawText}`;
         ...(apiKey ? { Authorization: `Bearer ${apiKey}` } : {})
       },
       body: JSON.stringify({
-        model: 'ag/gemini-3.8-flash-high',
+        model: 'ag/gemini-3.8-flash',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.1
       }),
